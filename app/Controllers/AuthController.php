@@ -20,14 +20,24 @@ class AuthController extends BaseController
 
 
 
-            $dataUser = ['username' => 'teduh', 'password' => '8a980818c1bb2394cd08da056dc79398', 'role' => 'admin']; // passw 123
+            $dataUser = [
+                'username' => 'teduh', 
+                'password' => '8a980818c1bb2394cd08da056dc79398', 
+                'role' => 'admin',
+                'email' => '111202416021@mhs.dinus.ac.id',
+                'picture' => 'https://img.magnific.com/free-vector/man-profile-account-picture_24908-81754.jpg'
+            ]; 
 
             if ($username == $dataUser['username']) {
                 if (md5($password) == $dataUser['password']) {
                     session()->set([
                         'username' => $dataUser['username'],
                         'role' => $dataUser['role'],
-                        'isLoggedIn' => TRUE
+                        'email' => $dataUser['email'],
+                        'picture' => $dataUser['picture'],
+                        'isLoggedIn' => TRUE,
+                        'time_when_login' => time()
+
                     ]);
 
 
