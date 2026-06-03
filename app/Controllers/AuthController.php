@@ -21,11 +21,11 @@ class AuthController extends BaseController
 
 
             $dataUser = [
-                'username' => 'teduh', 
-                'password' => '8a980818c1bb2394cd08da056dc79398', 
+                'username' => 'fuji', 
+                'password' => 'e206a54e97690cce50cc872dd70ee896', 
                 'role' => 'admin',
-                'email' => '111202416021@mhs.dinus.ac.id',
-                'picture' => 'https://img.magnific.com/free-vector/man-profile-account-picture_24908-81754.jpg'
+                'email' => 'htop@github.com',
+                'picture' => 'https://upload.wikimedia.org/wikipedia/commons/a/a1/Bundesarchiv_Bild_146-2006-0122%2C_Hans-Joachim_Marseille.jpg'
             ]; 
 
             if ($username == $dataUser['username']) {

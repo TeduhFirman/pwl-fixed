@@ -9,6 +9,6 @@ class ProfileController extends BaseController
 {
     public function index()
     {
-        return view('v_profil');
+        return view('v_profile');
     }
 }
