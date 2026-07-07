@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class TransactionDetail extends Migration
+class CreateTransactionTable extends Migration
 {
     public function up()
     {
@@ -12,48 +12,48 @@ class TransactionDetail extends Migration
             'id' => [
                 'type' => 'INT',
                 'constraint' => 11,
-                'unsigned' => TRUE,
-                'auto_increment' => TRUE
+                'unsigned' => true,
+                'auto_increment' => true
             ],
-            'transaction_id' => [
-                'type' => 'INT',
-                'constraint' => 11,
-                'unsigned' => TRUE,
+            'username' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => false,
             ],
-            'product_id' => [
-                'type' => 'INT',
-                'constraint' => 11,
-                'unsigned' => TRUE,
-            ],
-            'jumlah' => [
-                'type' => 'INT',
-                'constraint' => 5,
-                'null' => FALSE,
-            ],
-            'diskon' => [
+            'total_harga' => [
                 'type' => 'DOUBLE',
-                'null' => TRUE,
+                'null' => false,
             ],
-            'subtotal_harga' => [
+            'alamat' => [
+                'type' => 'TEXT',
+                'null' => false,
+            ],
+            'ongkir' => [
                 'type' => 'DOUBLE',
-                'null' => FALSE,
+                'null' => true
+            ],
+            'status' => [
+                'type' => 'INT',
+                'constraint' => 1,
+                'null' => false,
             ],
             'created_at' => [
-                'type' => 'datetime',
-                'null' => TRUE
+                'type' => 'DATETIME',
+                'null' => true
             ],
             'updated_at' => [
-                'type' => 'datetime',
-                'null' => TRUE
+                'type' => 'DATETIME',
+                'null' => true
             ]
         ]);
 
-        $this->forge->addKey('id', TRUE);
-        $this->forge->createTable('transaction_detail');
+        $this->forge->addKey('id', true);
+        $this->forge->addForeignKey('username', 'user', 'username', 'CASCADE', 'CASCADE');
+        $this->forge->createTable('transaction');
     }
 
     public function down()
     {
-        $this->forge->dropTable('transaction_detail');
+        $this->forge->dropTable('transaction');
     }
 }
